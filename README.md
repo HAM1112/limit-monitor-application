@@ -92,7 +92,7 @@ python manage.py runserver
 
 ```
 
-5. Access the application at http://localhost:8000/login
+5. Access the application at http://localhost:8000/account
 
 
 
