@@ -56,30 +56,37 @@ To set up the environment file, follow these steps:
 To run the project, use the following steps:
 
     1. Make migrations:
-         ```bash
-            python manage.py makemigrations
-            python manage.py migrate
 
-        ```
+            ```bash
+                python manage.py makemigrations
+                python manage.py migrate
+
+            ```
 
     2. Start the Celery worker:
-         ```bash
-            celery -A limit_monitor worker --loglevel=info
 
-        ```
+            ```bash
+                celery -A limit_monitor worker --loglevel=info
+
+            ```
+
 
 
     3. Start the Celery beat:
-         ```bash
-            celery -A limit_monitor beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
-        ```
+
+             ```bash
+                celery -A limit_monitor beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+             ```
 
     4. Run the Django development server:
-         ```bash
-            python manage.py runserver
 
-        ```
+
+            ```bash
+                python manage.py runserver
+
+            ```
 
     5. Access the application at http://localhost:8000/login
 
