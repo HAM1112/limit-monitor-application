@@ -11,7 +11,7 @@ To clone this repository, use the following steps:
 3. Run the following command:
 
 ```bash
-git clone https://github.com/your-username/limit-monitor-application.git
+git clone https://github.com/HAM1112/limit-monitor-application.git
 
 ```
 
@@ -60,9 +60,12 @@ To run the project, use the following steps:
 
 ```bash
 python manage.py makemigrations
-python manage.py migrate
-
 ```
+
+```bash
+python manage.py migrate
+```
+
 
 2. Start the Celery worker:
 
