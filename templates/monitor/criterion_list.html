@@ -1,0 +1,32 @@
+<h2>Criteria</h2>
+<a href="{% url 'criterion_create' %}">Add New Criterion</a>
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Operator</th>
+            <th>Threshold</th>
+            <th>Frequency</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for criterion in criteria %}
+        <tr>
+            <td>{{ criterion.parameter }}</td>
+            <td>{{ criterion.operator }}</td>
+            <td>{{ criterion.threshold }}</td>
+            <td>{{ criterion.frequency }}</td>
+            <td>{{ criterion.status }}</td>
+            <td>
+                <a href="{% url 'criterion_update' criterion.pk %}">Edit</a>
+                <a href="{% url 'criterion_delete' criterion.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %} 
+    </tbody>
+</table>
+
+Click here to logout
+<a href="{% url 'logout' %}">Logout</a>
