@@ -5,5 +5,5 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
-    {% comment %} <a href="{% url 'signup' %}">Dont have Account Create</a> {% endcomment %}
+    <a href="{% url 'signup' %}">Dont have Account Create</a>
 </form>
