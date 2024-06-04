@@ -2,7 +2,9 @@ from celery import shared_task
 from datetime import datetime
 from monitor.models import Criterion
 from django.core.mail import EmailMessage ,send_mail
+from datetime import timedelta
 
+from datetime import datetime
 from django.conf import settings
 import requests
 
@@ -63,4 +65,18 @@ def yearly_status_update():
             record.status = 'Completed'
             record.save()
     print('yearly')
+
+
+@shared_task
+def testing():
+    message = f"Test run for task scheduler. This is a broadcast message. DO NOT REPLY"
+    subject = 'Task Scheduling '
+    from_email = settings.EMAIL_HOST_USER
+    to_email = ['hamdansalihpc@gmail.com']
+    send_mail(subject,message,from_email , to_email)
+    
+    print('hello world', datetime.now())
+
+
+
     

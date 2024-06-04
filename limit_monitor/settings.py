@@ -48,8 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'celery',
+    
     'account' ,
     'monitor',
+    
+    'practice',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -162,3 +168,10 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 
+from datetime import timedelta
+CELERY_BEAT_SCHEDULE = {
+    'print-every-15-seconds': {
+        'task': 'monitor.tasks.testing',
+        'schedule': timedelta(seconds=15),
+    },
+}
